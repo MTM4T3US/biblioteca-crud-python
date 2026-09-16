@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}Biblioteca{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<header><a href="{{ url_for('index') }}">Biblioteca Escolar</a><nav><a href="{{ url_for('listar_alunos') }}">Alunos</a><a href="{{ url_for('listar_livros') }}">Livros</a><a href="{{ url_for('listar_emprestimos') }}">Empréstimos</a></nav></header>
+<main>
+{% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+{% block content %}{% endblock %}
+</main>
+</body></html>
